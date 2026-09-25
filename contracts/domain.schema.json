@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "节令配方声明放行库领域事件",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event_type",
+    "aggregate_type",
+    "aggregate_id",
+    "occurred_at",
+    "version",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "FORMULA_VERSIONED",
+        "EVIDENCE_ACCEPTED",
+        "CLAIM_APPROVED",
+        "LOT_LOCKED",
+        "IMPACT_PROPAGATED"
+      ]
+    },
+    "aggregate_type": {
+      "type": "string",
+      "enum": [
+        "formula_revision",
+        "evidence_record",
+        "label_claim",
+        "production_lot"
+      ]
+    },
+    "aggregate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "payload_required_by_event": {
+    "EVIDENCE_ACCEPTED": [
+      "method_ref",
+      "valid_until"
+    ],
+    "CLAIM_APPROVED": [
+      "market_scope",
+      "evidence_set"
+    ],
+    "LOT_LOCKED": [
+      "formula_version",
+      "produced_at"
+    ]
+  },
+  "additionalProperties": false
+}

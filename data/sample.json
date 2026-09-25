@@ -1,0 +1,9 @@
+{
+  "event_id": "092601-009-sample-001",
+  "event_type": "FORMULA_VERSIONED",
+  "aggregate_type": "formula_revision",
+  "aggregate_id": "formula_claim-001",
+  "occurred_at": "2026-09-25T10:00:00+08:00",
+  "version": 1,
+  "payload": {}
+}
