@@ -9,6 +9,7 @@
     "aggregate_id",
     "occurred_at",
     "version",
+    "actor",
     "payload"
   ],
   "properties": {
@@ -20,9 +21,15 @@
       "type": "string",
       "enum": [
         "FORMULA_VERSIONED",
+        "INGREDIENT_SPEC_CHANGED",
         "EVIDENCE_ACCEPTED",
         "CLAIM_APPROVED",
+        "CLAIM_NARROWED",
         "LOT_LOCKED",
+        "LOT_SALE_CLOSED",
+        "LOT_RECALLED",
+        "CAPACITY_RESERVED",
+        "CAPACITY_CONFIRMED",
         "IMPACT_PROPAGATED"
       ]
     },
@@ -30,9 +37,12 @@
       "type": "string",
       "enum": [
         "formula_revision",
+        "ingredient_spec",
         "evidence_record",
         "label_claim",
-        "production_lot"
+        "production_lot",
+        "shared_capacity",
+        "impact_run"
       ]
     },
     "aggregate_id": {
@@ -47,11 +57,42 @@
       "type": "integer",
       "minimum": 1
     },
+    "actor": {
+      "type": "object",
+      "required": [
+        "id",
+        "role"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "rd",
+            "quality",
+            "regulatory",
+            "factory"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
     "payload": {
       "type": "object"
     }
   },
   "payload_required_by_event": {
+    "FORMULA_VERSIONED": [
+      "product",
+      "window"
+    ],
+    "INGREDIENT_SPEC_CHANGED": [
+      "ingredient",
+      "spec_version"
+    ],
     "EVIDENCE_ACCEPTED": [
       "method_ref",
       "valid_until"
@@ -60,9 +101,73 @@
       "market_scope",
       "evidence_set"
     ],
+    "CLAIM_NARROWED": [
+      "market_scope"
+    ],
     "LOT_LOCKED": [
       "formula_version",
-      "produced_at"
+      "produced_at",
+      "plant",
+      "sale_regions"
+    ],
+    "LOT_SALE_CLOSED": [],
+    "LOT_RECALLED": [
+      "reason"
+    ],
+    "CAPACITY_RESERVED": [
+      "pool",
+      "plan_id",
+      "quantity"
+    ],
+    "CAPACITY_CONFIRMED": [
+      "pool",
+      "plan_id",
+      "quantity"
+    ],
+    "IMPACT_PROPAGATED": [
+      "run_id",
+      "trigger",
+      "batch_index",
+      "affected"
+    ]
+  },
+  "actor_role_by_event": {
+    "FORMULA_VERSIONED": [
+      "rd"
+    ],
+    "INGREDIENT_SPEC_CHANGED": [
+      "rd"
+    ],
+    "EVIDENCE_ACCEPTED": [
+      "quality"
+    ],
+    "CLAIM_APPROVED": [
+      "regulatory"
+    ],
+    "CLAIM_NARROWED": [
+      "regulatory"
+    ],
+    "LOT_LOCKED": [
+      "factory"
+    ],
+    "LOT_SALE_CLOSED": [
+      "factory",
+      "regulatory"
+    ],
+    "LOT_RECALLED": [
+      "regulatory"
+    ],
+    "CAPACITY_RESERVED": [
+      "factory",
+      "rd"
+    ],
+    "CAPACITY_CONFIRMED": [
+      "factory",
+      "quality"
+    ],
+    "IMPACT_PROPAGATED": [
+      "quality",
+      "regulatory"
     ]
   },
   "additionalProperties": false

@@ -1,0 +1,608 @@
+[
+  {
+    "event_id": "spec-lotus-v1",
+    "event_type": "INGREDIENT_SPEC_CHANGED",
+    "aggregate_type": "ingredient_spec",
+    "aggregate_id": "spec:莲蓉",
+    "occurred_at": "2026-07-20T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "rd-li",
+      "role": "rd"
+    },
+    "payload": {
+      "ingredient": "白莲蓉",
+      "spec_version": 1,
+      "note": "入厂时的初始规格"
+    }
+  },
+  {
+    "event_id": "spec-chenpi-v1",
+    "event_type": "INGREDIENT_SPEC_CHANGED",
+    "aggregate_type": "ingredient_spec",
+    "aggregate_id": "spec:陈皮山药",
+    "occurred_at": "2026-07-20T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "rd-li",
+      "role": "rd"
+    },
+    "payload": {
+      "ingredient": "陈皮山药复合料",
+      "spec_version": 1,
+      "note": ""
+    }
+  },
+  {
+    "event_id": "formula-v1",
+    "event_type": "FORMULA_VERSIONED",
+    "aggregate_type": "formula_revision",
+    "aggregate_id": "formula:莲蓉月饼",
+    "occurred_at": "2026-08-01T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "rd-li",
+      "role": "rd"
+    },
+    "payload": {
+      "product": "节令月饼·莲蓉",
+      "window": "2026中秋",
+      "ingredients": [
+        {
+          "ingredient": "白莲蓉",
+          "spec_id": "spec:莲蓉",
+          "spec_version": 1
+        },
+        {
+          "ingredient": "小麦粉",
+          "spec_id": "spec:小麦粉",
+          "spec_version": 1
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "formula-v2",
+    "event_type": "FORMULA_VERSIONED",
+    "aggregate_type": "formula_revision",
+    "aggregate_id": "formula:莲蓉月饼",
+    "occurred_at": "2026-08-03T09:00:00+08:00",
+    "version": 2,
+    "actor": {
+      "id": "rd-li",
+      "role": "rd"
+    },
+    "payload": {
+      "product": "节令月饼·莲蓉",
+      "window": "2026中秋",
+      "ingredients": [
+        {
+          "ingredient": "低糖白莲蓉",
+          "spec_id": "spec:莲蓉",
+          "spec_version": 1
+        },
+        {
+          "ingredient": "陈皮山药复合料",
+          "spec_id": "spec:陈皮山药",
+          "spec_version": 1
+        },
+        {
+          "ingredient": "小麦粉",
+          "spec_id": "spec:小麦粉",
+          "spec_version": 1
+        }
+      ],
+      "replaces": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 1
+      }
+    }
+  },
+  {
+    "event_id": "ev-low-sugar",
+    "event_type": "EVIDENCE_ACCEPTED",
+    "aggregate_type": "evidence_record",
+    "aggregate_id": "ev:lab:低糖-001",
+    "occurred_at": "2026-08-18T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "qa-wang",
+      "role": "quality"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 2
+      },
+      "kind": "low_sugar",
+      "method_ref": "GB 5009.8-2023",
+      "valid_until": "2027-06-30T23:59:59+08:00",
+      "unit": "g/100g",
+      "basis_doc": "",
+      "value": 4.2
+    }
+  },
+  {
+    "event_id": "ev-reduced-oil",
+    "event_type": "EVIDENCE_ACCEPTED",
+    "aggregate_type": "evidence_record",
+    "aggregate_id": "ev:lab:减油-001",
+    "occurred_at": "2026-08-18T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "qa-wang",
+      "role": "quality"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 2
+      },
+      "kind": "reduced_oil",
+      "method_ref": "GB 5009.6-2016",
+      "valid_until": "2026-11-30T23:59:59+08:00",
+      "unit": "g/100g",
+      "basis_doc": "",
+      "value": 8.0,
+      "baseline_value": 12.0
+    }
+  },
+  {
+    "event_id": "ev-homologous",
+    "event_type": "EVIDENCE_ACCEPTED",
+    "aggregate_type": "evidence_record",
+    "aggregate_id": "ev:doc:同源-001",
+    "occurred_at": "2026-08-19T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "qa-wang",
+      "role": "quality"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 2
+      },
+      "kind": "homologous",
+      "method_ref": "文件评审 FR-2026-018",
+      "valid_until": "2027-12-31T23:59:59+08:00",
+      "unit": "",
+      "basis_doc": "卫健委按照传统既是食品又是中药材物质目录（2023 调整版）"
+    }
+  },
+  {
+    "event_id": "ev-flavor-classic",
+    "event_type": "EVIDENCE_ACCEPTED",
+    "aggregate_type": "evidence_record",
+    "aggregate_id": "ev:doc:风味-经典",
+    "occurred_at": "2026-08-19T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "qa-wang",
+      "role": "quality"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 1
+      },
+      "kind": "flavor",
+      "method_ref": "感官评定 QS-2026-031",
+      "valid_until": "2027-09-30T23:59:59+08:00",
+      "unit": "",
+      "basis_doc": ""
+    }
+  },
+  {
+    "event_id": "claim-low",
+    "event_type": "CLAIM_APPROVED",
+    "aggregate_type": "label_claim",
+    "aggregate_id": "claim:低糖",
+    "occurred_at": "2026-08-22T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "reg-zhao",
+      "role": "regulatory"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 2
+      },
+      "text": "低糖莲蓉月饼",
+      "kind": "low_sugar",
+      "market_scope": [
+        "CN-SH",
+        "CN-BJ"
+      ],
+      "evidence_set": [
+        "ev:lab:低糖-001"
+      ]
+    }
+  },
+  {
+    "event_id": "claim-oil",
+    "event_type": "CLAIM_APPROVED",
+    "aggregate_type": "label_claim",
+    "aggregate_id": "claim:减油",
+    "occurred_at": "2026-08-22T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "reg-zhao",
+      "role": "regulatory"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 2
+      },
+      "text": "减脂30%（对比经典配方）",
+      "kind": "reduced_oil",
+      "market_scope": [
+        "CN-SH",
+        "CN-BJ"
+      ],
+      "evidence_set": [
+        "ev:lab:减油-001"
+      ]
+    }
+  },
+  {
+    "event_id": "claim-homo",
+    "event_type": "CLAIM_APPROVED",
+    "aggregate_type": "label_claim",
+    "aggregate_id": "claim:同源",
+    "occurred_at": "2026-08-22T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "reg-zhao",
+      "role": "regulatory"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 2
+      },
+      "text": "添加陈皮、山药（药食同源）",
+      "kind": "homologous",
+      "market_scope": [
+        "CN-SH"
+      ],
+      "evidence_set": [
+        "ev:doc:同源-001"
+      ]
+    }
+  },
+  {
+    "event_id": "claim-flavor",
+    "event_type": "CLAIM_APPROVED",
+    "aggregate_type": "label_claim",
+    "aggregate_id": "claim:经典风味",
+    "occurred_at": "2026-08-22T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "reg-zhao",
+      "role": "regulatory"
+    },
+    "payload": {
+      "formula_ref": {
+        "formula_id": "formula:莲蓉月饼",
+        "version": 1
+      },
+      "text": "古法莲蓉风味",
+      "kind": "flavor",
+      "market_scope": [
+        "CN-SH",
+        "CN-BJ",
+        "CN-GZ"
+      ],
+      "evidence_set": [
+        "ev:doc:风味-经典"
+      ]
+    }
+  },
+  {
+    "event_id": "cap-print-a",
+    "event_type": "CAPACITY_RESERVED",
+    "aggregate_type": "shared_capacity",
+    "aggregate_id": "pool:print:健康月饼盒-2026",
+    "occurred_at": "2026-08-25T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "pool": "pool:print:健康月饼盒-2026",
+      "plan_id": "plan:中秋A线",
+      "quantity": 60000
+    }
+  },
+  {
+    "event_id": "cap-print-b",
+    "event_type": "CAPACITY_RESERVED",
+    "aggregate_type": "shared_capacity",
+    "aggregate_id": "pool:print:健康月饼盒-2026",
+    "occurred_at": "2026-08-25T09:00:00+08:00",
+    "version": 2,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "pool": "pool:print:健康月饼盒-2026",
+      "plan_id": "plan:中秋B线",
+      "quantity": 30000
+    }
+  },
+  {
+    "event_id": "cap-lotus-a",
+    "event_type": "CAPACITY_RESERVED",
+    "aggregate_type": "shared_capacity",
+    "aggregate_id": "pool:ingredient:合格莲蓉-2026",
+    "occurred_at": "2026-08-25T09:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "pool": "pool:ingredient:合格莲蓉-2026",
+      "plan_id": "plan:中秋A线",
+      "quantity": 3000
+    }
+  },
+  {
+    "event_id": "cap-lotus-b",
+    "event_type": "CAPACITY_RESERVED",
+    "aggregate_type": "shared_capacity",
+    "aggregate_id": "pool:ingredient:合格莲蓉-2026",
+    "occurred_at": "2026-08-25T09:00:00+08:00",
+    "version": 2,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "pool": "pool:ingredient:合格莲蓉-2026",
+      "plan_id": "plan:中秋B线",
+      "quantity": 1500
+    }
+  },
+  {
+    "event_id": "cap-print-a-ok",
+    "event_type": "CAPACITY_CONFIRMED",
+    "aggregate_type": "shared_capacity",
+    "aggregate_id": "pool:print:健康月饼盒-2026",
+    "occurred_at": "2026-08-28T09:00:00+08:00",
+    "version": 3,
+    "actor": {
+      "id": "qa-wang",
+      "role": "quality"
+    },
+    "payload": {
+      "pool": "pool:print:健康月饼盒-2026",
+      "plan_id": "plan:中秋A线",
+      "quantity": 60000
+    }
+  },
+  {
+    "event_id": "cap-lotus-a-ok",
+    "event_type": "CAPACITY_CONFIRMED",
+    "aggregate_type": "shared_capacity",
+    "aggregate_id": "pool:ingredient:合格莲蓉-2026",
+    "occurred_at": "2026-08-28T09:00:00+08:00",
+    "version": 3,
+    "actor": {
+      "id": "qa-wang",
+      "role": "quality"
+    },
+    "payload": {
+      "pool": "pool:ingredient:合格莲蓉-2026",
+      "plan_id": "plan:中秋A线",
+      "quantity": 3000
+    }
+  },
+  {
+    "event_id": "lot-a",
+    "event_type": "LOT_LOCKED",
+    "aggregate_type": "production_lot",
+    "aggregate_id": "lot:20260910-A",
+    "occurred_at": "2026-09-10T08:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "formula_id": "formula:莲蓉月饼",
+      "formula_version": 2,
+      "plant": "工厂·上海一厂",
+      "window": "2026中秋",
+      "produced_at": "2026-09-10T06:00:00+08:00",
+      "sale_regions": [
+        "CN-SH",
+        "CN-BJ"
+      ],
+      "packages": [
+        {
+          "ref": "P-低糖",
+          "claim_id": "claim:低糖",
+          "text": "低糖莲蓉月饼",
+          "kind": "low_sugar",
+          "regions": [
+            "CN-SH",
+            "CN-BJ"
+          ]
+        },
+        {
+          "ref": "P-减油",
+          "claim_id": "claim:减油",
+          "text": "减脂30%（对比经典配方）",
+          "kind": "reduced_oil",
+          "regions": [
+            "CN-SH",
+            "CN-BJ"
+          ]
+        },
+        {
+          "ref": "P-同源",
+          "claim_id": "claim:同源",
+          "text": "添加陈皮、山药（药食同源）",
+          "kind": "homologous",
+          "regions": [
+            "CN-SH"
+          ]
+        }
+      ],
+      "quantity": 30000
+    }
+  },
+  {
+    "event_id": "lot-b",
+    "event_type": "LOT_LOCKED",
+    "aggregate_type": "production_lot",
+    "aggregate_id": "lot:20260912-B",
+    "occurred_at": "2026-09-12T08:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "formula_id": "formula:莲蓉月饼",
+      "formula_version": 2,
+      "plant": "工厂·上海一厂",
+      "window": "2026中秋",
+      "produced_at": "2026-09-12T06:00:00+08:00",
+      "sale_regions": [
+        "CN-SH",
+        "CN-BJ"
+      ],
+      "packages": [
+        {
+          "ref": "P-低糖",
+          "claim_id": "claim:低糖",
+          "text": "低糖莲蓉月饼",
+          "kind": "low_sugar",
+          "regions": [
+            "CN-SH",
+            "CN-BJ"
+          ]
+        },
+        {
+          "ref": "P-减油",
+          "claim_id": "claim:减油",
+          "text": "减脂30%（对比经典配方）",
+          "kind": "reduced_oil",
+          "regions": [
+            "CN-SH",
+            "CN-BJ"
+          ]
+        },
+        {
+          "ref": "P-同源",
+          "claim_id": "claim:同源",
+          "text": "添加陈皮、山药（药食同源）",
+          "kind": "homologous",
+          "regions": [
+            "CN-SH"
+          ]
+        }
+      ],
+      "quantity": 20000
+    }
+  },
+  {
+    "event_id": "lot-c",
+    "event_type": "LOT_LOCKED",
+    "aggregate_type": "production_lot",
+    "aggregate_id": "lot:20260908-C",
+    "occurred_at": "2026-09-08T08:00:00+08:00",
+    "version": 1,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "formula_id": "formula:莲蓉月饼",
+      "formula_version": 1,
+      "plant": "工厂·上海一厂",
+      "window": "2026中秋",
+      "produced_at": "2026-09-08T06:00:00+08:00",
+      "sale_regions": [
+        "CN-SH",
+        "CN-BJ",
+        "CN-GZ"
+      ],
+      "packages": [
+        {
+          "ref": "P-风味",
+          "claim_id": "claim:经典风味",
+          "text": "古法莲蓉风味",
+          "kind": "flavor",
+          "regions": [
+            "CN-SH",
+            "CN-BJ",
+            "CN-GZ"
+          ]
+        }
+      ],
+      "quantity": 10000
+    }
+  },
+  {
+    "event_id": "lot-a-closed",
+    "event_type": "LOT_SALE_CLOSED",
+    "aggregate_type": "production_lot",
+    "aggregate_id": "lot:20260910-A",
+    "occurred_at": "2026-09-20T09:00:00+08:00",
+    "version": 2,
+    "actor": {
+      "id": "plant-sh1",
+      "role": "factory"
+    },
+    "payload": {
+      "reason": "中秋档首发已售罄"
+    }
+  },
+  {
+    "event_id": "claim-oil-narrow",
+    "event_type": "CLAIM_NARROWED",
+    "aggregate_type": "label_claim",
+    "aggregate_id": "claim:减油",
+    "occurred_at": "2026-09-22T09:00:00+08:00",
+    "version": 2,
+    "actor": {
+      "id": "reg-zhao",
+      "role": "regulatory"
+    },
+    "payload": {
+      "market_scope": [
+        "CN-SH"
+      ],
+      "previous_scope": [
+        "CN-BJ",
+        "CN-SH"
+      ],
+      "reason": "北京补测材料未在窗口内补齐"
+    }
+  },
+  {
+    "event_id": "spec-lotus-v2",
+    "event_type": "INGREDIENT_SPEC_CHANGED",
+    "aggregate_type": "ingredient_spec",
+    "aggregate_id": "spec:莲蓉",
+    "occurred_at": "2026-09-24T09:00:00+08:00",
+    "version": 2,
+    "actor": {
+      "id": "rd-li",
+      "role": "rd"
+    },
+    "payload": {
+      "ingredient": "低糖白莲蓉（粒度细化）",
+      "spec_version": 2,
+      "note": "供应商工艺调整，过敏原声明不变"
+    }
+  }
+]

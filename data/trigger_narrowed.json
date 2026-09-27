@@ -1,0 +1,7 @@
+{
+  "type": "claim_narrowed",
+  "claim_id": "claim:减油",
+  "removed_regions": [
+    "CN-BJ"
+  ]
+}
