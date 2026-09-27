@@ -6,9 +6,9 @@
 
 - `contracts/domain.schema.json`：对象、事件和载荷字段约定。
 - `data/sample.json`：可直接校验的联调样例。
-- `src/formula_claim/`：基础契约校验与命令行入口。
-- `tests/`：信封、时间、版本和事件载荷测试。
-- `docs/domain.md`：领域对象与事件语义。
+- `src/formula_claim/`：基础契约校验、放行服务（职责分离、证据门槛、批次锁定、声明收窄、共享资源）、影响传播（断点续跑）与命令行入口。
+- `tests/`：信封、时间、版本、事件载荷与放行规则、影响传播测试。
+- `docs/domain.md`：领域对象、事件语义与放行规则。
 
 ## 测试
 

@@ -1,5 +1,60 @@
-"""节令配方声明放行库领域契约。"""
+"""节令配方声明放行库：领域契约、放行服务与影响传播。"""
 
 from .contracts import ContractIssue, validate_event
+from .impact import ImpactJob, ImpactPropagator, InMemoryCheckpointStore
+from .model import (
+    CLAIM_TIER_REQUIREMENTS,
+    EVIDENCE_HOMOLOGY_BASIS,
+    EVIDENCE_NUTRITION_TEST,
+    EVIDENCE_TRIAL_RESULT,
+    Actor,
+    ClaimTier,
+    DomainError,
+    EvidenceRecord,
+    FormulaRevision,
+    IngredientSpec,
+    LabelClaim,
+    ProductionLot,
+    Role,
+    classify_claim_text,
+)
+from .service import (
+    ClaimEvaluation,
+    ClaimPause,
+    DeniedClaim,
+    NarrowingResult,
+    PlanReservation,
+    ReleaseService,
+    ResourcePool,
+    SaleNotification,
+)
 
-__all__ = ["ContractIssue", "validate_event"]
+__all__ = [
+    "Actor",
+    "CLAIM_TIER_REQUIREMENTS",
+    "ClaimEvaluation",
+    "ClaimPause",
+    "ClaimTier",
+    "ContractIssue",
+    "DeniedClaim",
+    "DomainError",
+    "EVIDENCE_HOMOLOGY_BASIS",
+    "EVIDENCE_NUTRITION_TEST",
+    "EVIDENCE_TRIAL_RESULT",
+    "EvidenceRecord",
+    "FormulaRevision",
+    "ImpactJob",
+    "ImpactPropagator",
+    "IngredientSpec",
+    "InMemoryCheckpointStore",
+    "LabelClaim",
+    "NarrowingResult",
+    "PlanReservation",
+    "ProductionLot",
+    "ReleaseService",
+    "ResourcePool",
+    "Role",
+    "SaleNotification",
+    "classify_claim_text",
+    "validate_event",
+]
